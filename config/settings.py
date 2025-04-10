@@ -31,7 +31,14 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG") # turned off for prod
 
-ALLOWED_HOSTS = ["typedia.onrender.com"] # fixed now
+ALLOWED_HOSTS = [
+    "127.0.0.1",            # local dev
+    "typedia.onrender.com"  # deployed site
+]
+
+# LOGIN and LOGOUT
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/login/'
 
 # Application definition
 
@@ -128,6 +135,3 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# testing
-print(STATIC_ROOT, STATICFILES_STORAGE, STATIC_ROOT)
